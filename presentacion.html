@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guion de Exposición: Cálculo Integral en la Ingeniería</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\(', '\)']],
+                displayMath: [['$$', '$$']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .container {
+            max-width: 800px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        h1, h2, h3 {
+            font-weight: 600;
+            color: #0056b3;
+        }
+        h1 {
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-top: 40px;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 5px;
+        }
+        .slide-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        strong {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guion para Exposición: Cálculo Integral en la Ingeniería</h1>
+        <p class="lead"><strong>Tema:</strong> Cálculo Integral en la Ingeniería: Áreas y Volúmenes</p>
+        <p><strong>Integrantes:</strong> Juan Pablo Arenas Montoya, Jaime Andres Botero Ochoa, Henry Caicedo Rodriguez</p>
+
+        <hr>
+
+        <h2>Parte 1: Fundamentos y Conceptos (Expositor 1: Juan Pablo Arenas Montoya)</h2>
+
+        <div class="slide-section">
+            <h3>Diapositiva 1: Título</h3>
+            <p>"Buenos días a todos. Hoy vamos a explorar una de las herramientas matemáticas más importantes para la ingeniería: el <strong>Cálculo Integral</strong>, y nos enfocaremos en su aplicación para el cálculo de áreas y volúmenes."</p>
+        </div>
+
+        <div class="slide-section">
+            <h3>Diapositiva 2: Introducción - La Necesidad de Precisión</h3>
+            <p>"La ingeniería moderna, desde el diseño de un puente hasta una misión espacial, exige una precisión casi perfecta. Un pequeño error de cálculo puede tener consecuencias catastróficas. Además, la optimización de recursos es fundamental; cada centímetro de material cuenta."</p>
+            <p>"Pero, ¿cómo medimos con exactitud las formas complejas y curvas del mundo real? La respuesta está en el <strong>Cálculo Integral</strong>."</p>
+        </div>
+
+        <div class="slide-section">
+            <h3>Diapositiva 3: Conceptos - La Suma de Partes Infinitesimales</h3>
+            <p>"El fundamento teórico detrás del cálculo de áreas de superficies curvas es la <strong>Suma de Riemann</strong>. La idea es simple pero poderosa: dividimos una forma compleja en un número infinito de rectángulos muy pequeños."</p>
+            <p>"La suma del área de todos estos rectángulos nos da una aproximación del área total. El cálculo integral lleva este concepto al límite: cuando el ancho de los rectángulos tiende a cero, la suma se convierte en el valor exacto del área. Esto se formaliza con la integral definida:"</p>
+            <p>$$ \text{Área} = \int_{a}^{b} f(x) \,dx $$</p>
+            <p>"Donde cada término significa:"</p>
+            <ul>
+                <li><b>Área</b>: El área total bajo la curva.</li>
+                <li><b>∫</b>: El símbolo de la integral, que representa la suma.</li>
+                <li><b>a</b> y <b>b</b>: Los límites de integración, es decir, el intervalo en el eje x sobre el cual estamos calculando el área.</li>
+                <li><b>f(x)</b>: La función que define la altura de la curva en cada punto x.</li>
+                <li><b>dx</b>: El diferencial de x, que representa el ancho infinitesimal de cada rectángulo.</li>
+            </ul>
+        </div>
+
+        <div class="slide-section">
+            <h3>Diapositiva 4: Extensión a Volúmenes</h3>
+            <p>"Este mismo principio de 'dividir y conquistar' se aplica para calcular volúmenes de sólidos irregulares. En lugar de rectángulos, usamos 'rebanadas' de un grosor infinitesimal."</p>
+            <p>"Si conocemos una función A(x) que describe el área de la sección transversal del sólido en cualquier punto, podemos 'sumar' todas esas áreas a lo largo de un eje para obtener el volumen total. La fórmula es:"</p>
+            <p>$$ V = \int_{a}^{b} A(x) \,dx $$</p>
+            <p>"Donde cada término significa:"</p>
+            <ul>
+                <li><b>V</b>: El volumen total del sólido.</li>
+                <li><b>a</b> y <b>b</b>: Los límites de integración a lo largo del eje del sólido.</li>
+                <li><b>A(x)</b>: La función que describe el área de la sección transversal (la 'rebanada') en un punto x.</li>
+                <li><b>dx</b>: El diferencial de x, que representa el grosor infinitesimal de cada rebanada.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>Parte 2: Desafíos y Aplicaciones Prácticas (Expositor 2: Jaime Andres Botero Ochoa)</h2>
+
+        <div class="slide-section">
+            <h3>Diapositiva 5: Desafíos de la Aplicación Práctica</h3>
+            <p>"Gracias, Juan Pablo. Ahora que entendemos la teoría, hablemos de los desafíos en el mundo real."</p>
+            <p>"Primero, el <strong>Modelado Matemático</strong>. Los objetos reales rara vez se describen con funciones simples. Los ingenieros deben usar datos de tecnologías como escáneres 3D para construir un modelo matemático preciso."</p>
+            <p>"Segundo, la <strong>Complejidad Analítica</strong>. Las funciones que describen objetos reales suelen ser tan complejas que es imposible resolver su integral a mano."</p>
+            <p>"Por esto, en la práctica, recurrimos a <strong>Soluciones Numéricas</strong>. Usamos software especializado que implementa métodos como la regla de Simpson o el Análisis de Elementos Finitos para aproximar el valor de la integral con una precisión increíble."</p>
+        </div>
+
+        <div class="slide-section">
+            <h3>Diapositiva 6: Caso de Estudio - Análisis Estructural de una Presa</h3>
+            <p>"Para ilustrar estas ideas, analicemos un caso de estudio: el diseño de una presa de hormigón. Aquí, la precisión no es solo una cuestión de costos, sino de seguridad."</p>
+        </div>
+
+        <div class="slide-section">
+            <h3>Diapositiva 7: Aplicación 1 - Cuantificación de Materiales</h3>
+            <p>"La primera aplicación es calcular la cantidad de material necesario. Usando integrales triples, podemos determinar el volumen exacto de la estructura de la presa."</p>
+            <p>"Este cálculo es la base para estimar los costos del hormigón y para planificar toda la logística del proyecto. Un error aquí podría costar millones."</p>
+            <p>"Ahora, mi compañero Henry continuará con otras aplicaciones críticas del cálculo integral en este mismo caso de estudio."</p>
+        </div>
+
+        <hr>
+
+        <h2>Parte 3: Análisis Avanzado y Conclusión (Expositor 3: Henry Caicedo Rodriguez)</h2>
+
+        <div class="slide-section">
+            <h3>Diapositiva 8: Aplicación 2 - Cálculo de Fuerza Hidrostática</h3>
+            <p>"Gracias, Jaime. Además de los materiales, debemos entender las fuerzas que actúan sobre la presa. La presión del agua no es constante; aumenta con la profundidad."</p>
+            <p>"Para calcular la fuerza total que el agua ejerce sobre la cara de la presa, integramos esta presión variable sobre toda la superficie sumergida. La fórmula es:"</p>
+            <p>$$ F = \int_{c}^{d} \rho g h(y) w(y) \,dy $$</p>
+            <p>"Donde cada término significa:"</p>
+            <ul>
+                <li><b>F</b>: La Fuerza Hidrostática total.</li>
+                <li><b>ρ (rho)</b>: La densidad del fluido (en este caso, agua).</li>
+                <li><b>g</b>: La aceleración debido a la gravedad.</li>
+                <li><b>h(y)</b>: La profundidad del agua en una altura 'y' determinada.</li>
+                <li><b>w(y)</b>: El ancho de la presa en esa misma altura 'y'.</li>
+                <li><b>dy</b>: El diferencial de y, que representa la altura infinitesimal de la franja de área que estamos analizando.</li>
+            </ul>
+        </div>
+
+        <div class="slide-section">
+            <h3>Diapositiva 9: Análisis de Estabilidad</h3>
+            <p>"Finalmente, no solo importa cuánta fuerza se aplica, sino dónde se aplica. Necesitamos encontrar el <strong>centro de presión</strong>, que es el punto donde actúa la fuerza resultante del agua."</p>
+            <p>"Este punto se calcula con otra integral, que pondera la presión según su posición. La fórmula es:"</p>
+            $$ y_p = \frac{\int_{A} y P \,dA}{\int_{A} P \,dA} $$
+            <p>"Donde cada término significa:"</p>
+            <ul>
+                <li><b>y_p</b>: La coordenada vertical del centro de presión.</li>
+                <li><b>y</b>: La coordenada vertical del punto donde se está midiendo la presión.</li>
+                <li><b>P</b>: La presión en ese punto.</li>
+                <li><b>dA</b>: Un elemento diferencial de área en la superficie de la presa.</li>
+            </ul>
+            <p>"Un cálculo incorrecto del centro de presión podría hacer que la presa se vuelque. Por lo tanto, es fundamental para diseñar una base estable."</p>
+        </div>
+
+        <div class="slide-section">
+            <h3>Diapositiva 10: Conclusión</h3>
+            <p>"En conclusión, el cálculo integral es mucho más que un tema académico. Es un pilar fundamental de la ingeniería moderna."</p>
+            <p>"Nos proporciona el lenguaje para modelar la complejidad del mundo físico y nos permite analizar, predecir y cuantificar con la precisión necesaria para construir soluciones que sean <strong>seguras, eficientes y económicamente viables</strong>."</p>
+            <p>"Cada gran obra de ingeniería que vemos es un testimonio del poder de este método. Muchas gracias."</p>
+        </div>
+
+        <div class="slide-section">
+            <h3>Diapositiva 11: Bibliografía y Preguntas</h3>
+            <p>"Aquí pueden ver algunas de las fuentes que utilizamos para nuestra investigación. Ahora, abrimos el espacio para sus preguntas."</p>
+        </div>
+    </div>
+</body>
+</html>
