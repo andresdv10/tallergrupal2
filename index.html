@@ -31,71 +31,88 @@
 
     <!-- Custom CSS -->
     <style>
+        :root {
+            --primary-color: #0d47a1;
+            --secondary-color: #1976d2;
+            --accent-color: #42a5f5;
+            --text-color: #212529;
+            --bg-color: #eef2f7;
+        }
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f0f2f5; /* Light gray background */
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             scroll-behavior: smooth;
         }
         .navbar {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
         .slide {
             min-height: 100vh;
-            padding: 100px 20px;
-            border-bottom: 1px solid #ddd;
+            padding: 120px 40px;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-bottom: 1px solid #dee2e6;
         }
-        .slide:last-child {
-            border-bottom: none;
-        }
+        .slide:last-child { border-bottom: none; }
         .slide-content {
-            max-width: 960px;
+            max-width: 1140px;
             width: 100%;
         }
         .slide h1, .slide h2 {
             font-weight: 700;
-            color: #0056b3; /* Dark blue for headers */
+            color: var(--primary-color);
         }
-        .slide h1 { font-size: 3.5rem; }
-        .slide h2 { font-size: 2.5rem; margin-bottom: 30px; }
-        .img-placeholder {
-            width: 100%;
-            height: 300px;
-            background-color: #e9ecef;
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6c757d;
-            font-style: italic;
-            border: 1px dashed #ccc;
-        }
+        .slide h1 { font-size: 3.8rem; }
+        .slide h2 { font-size: 3rem; margin-bottom: 40px; }
+        .slide h4 { color: var(--secondary-color); font-weight: 600; }
+
         #title-slide {
-            background: linear-gradient(45deg, #0056b3, #007bff);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             color: white;
         }
-        #title-slide h1, #title-slide h3 {
+        #title-slide h1, #title-slide h3, #title-slide p {
             color: white;
+        }
+        .card-custom {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        .citation {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            cursor: pointer;
         }
         .biblio-ref {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin-bottom: 1rem;
-            text-indent: -2em;
-            padding-left: 2em;
+            background-color: #fff;
+            padding: 1.5rem; /* Increased padding */
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow-wrap: break-word; /* Break long words/URLs */
+            word-wrap: break-word; /* Deprecated, but for fallback */
+            word-break: break-all;
         }
     </style>
 </head>
 <body>
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#title-slide" style="font-weight: 600;">Cálculo Integral en Ingeniería</a>
+            <a class="navbar-brand" href="#title-slide" style="font-weight: 700; color: var(--primary-color);">Cálculo Integral en Ingeniería</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -115,13 +132,11 @@
     <!-- Slide 1: Title -->
     <section id="title-slide" class="slide text-center">
         <div class="slide-content">
-            <h1 class="mb-3">Cálculo Integral en la Ingeniería: Áreas y Volúmenes</h1>
-            <h3 class="fw-light">Una Aplicación Fundamental</h3>
+            <h1 class="mb-3 display-3">Cálculo Integral en la Ingeniería</h1>
+            <h3 class="fw-light mb-5">Aplicación en Áreas y Volúmenes</h3>
             <div class="mt-5">
                 <p class="lead">Integrantes:</p>
-                <p>Juan Pablo Arenas Montoya</p>
-                <p>Jaime Andres Botero Ochoa</p>
-                <p>Henry Caicedo Rodriguez</p>
+                <p>Juan Pablo Arenas Montoya<br>Jaime Andres Botero Ochoa<br>Henry Caicedo Rodriguez</p>
             </div>
         </div>
     </section>
@@ -129,15 +144,19 @@
     <!-- Slide 2: Introduction -->
     <section id="intro" class="slide">
         <div class="slide-content">
-            <div class="row align-items-center">
+            <div class="row align-items-center g-5">
                 <div class="col-md-6">
-                    <h2>La Necesidad de Precisión en Ingeniería</h2>
-                    <p class="lead">La ingeniería moderna exige un alto grado de precisión. Un error de cálculo en el diseño de un puente puede comprometer su integridad estructural, mientras que una trayectoria mal calculada en una misión espacial puede significar el fracaso de la misma.</p>
-                    <p>En este contexto, la optimización de recursos es clave. Cada centímetro de material o cada litro de combustible impacta directamente los costos y la viabilidad de un proyecto. Por ello, la cuantificación exacta es fundamental.</p>
-                    <p>El principal desafío es que el mundo real no se compone de formas geométricas simples. Las estructuras y terrenos presentan contornos curvos y superficies complejas. Para abordar este problema, la ingeniería recurre a una de sus herramientas matemáticas más poderosas: el <strong>Cálculo Integral</strong>.</p>
+                    <div class="card-custom">
+                        <h2>Precisión: La Clave</h2>
+                        <ul class="list-unstyled fs-5">
+                            <li class="mb-3"><i class="bi bi-bullseye me-2"></i> La ingeniería moderna exige <strong>máxima precisión</strong>.</li>
+                            <li class="mb-3"><i class="bi bi-bounding-box me-2"></i> El mundo real presenta <strong>formas complejas</strong> y curvas.</li>
+                            <li class="mb-3"><i class="bi bi-tools me-2"></i> El <strong>Cálculo Integral</strong> es la herramienta esencial para modelar con exactitud. <a href="#bibliography" class="citation">(Bueno et al., 2020)</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <img src="https://andresdv10.github.io/tallergrupal2/Precision.png" class="img-fluid rounded shadow-sm" alt="Precisión en Ingeniería">
+                    <img src="https://andresdv10.github.io/tallergrupal2/Precision.png" class="img-fluid rounded-3 shadow-lg" alt="Precisión en Ingeniería">
                 </div>
             </div>
         </div>
@@ -146,30 +165,23 @@
     <!-- Slide 3 & 4: Concepts -->
     <section id="concepts" class="slide">
         <div class="slide-content">
-            <h2 class="text-center">Fundamento Teórico: La Suma de Partes Infinitesimales</h2>
-            <div class="row align-items-center mt-4">
-                <div class="col-md-7">
-                    <h4>Cálculo de Áreas por Integración</h4>
-                    <p>Para determinar el área de una superficie con contornos curvos, se emplea una estrategia formal conocida como la <strong>Suma de Riemann</strong>. El método consiste en subdividir el área de interés en una serie de rectángulos de un ancho muy pequeño, &#916;x.</p>
-                    <p>La suma de las áreas de estos rectángulos proporciona una aproximación al área total. El cálculo integral permite llevar este proceso al límite: al hacer que el ancho de los rectángulos tienda a cero (&#916;x &#8594; 0), su número tiende a infinito. En este límite, la suma deja de ser una aproximación y converge al valor exacto del área.</p>
-                    <p>Este proceso se formaliza mediante la integral definida:</p>
-                    $$ \text{Área} = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*) \Delta x = \int_{a}^{b} f(x) \,dx $$
-                    <small>Donde &#931; (Sigma) denota la suma, &#916;x es el ancho de cada rectángulo y f(x) su altura.</small>
+            <h2 class="text-center">De lo Infinitesimal a lo Real</h2>
+            <div class="row align-items-stretch g-4 mt-4">
+                <div class="col-md-6 d-flex">
+                    <div class="card-custom text-center">
+                        <h4>Cálculo de Áreas</h4>
+                        <img src="https://andresdv10.github.io/tallergrupal2/Suma%20de%20Riemman.png" class="img-fluid rounded my-3" alt="Suma de Riemann">
+                        <p>Dividimos un área compleja en infinitos rectángulos para encontrar su área exacta. <a href="#bibliography" class="citation">(Hass et al., 2018)</a></p>
+                        $$ \text{Área} = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*) \Delta x = \int_{a}^{b} f(x) \,dx $$
+                    </div>
                 </div>
-                <div class="col-md-5">
-                    <img src="https://andresdv10.github.io/tallergrupal2/Suma%20de%20Riemman.png" class="img-fluid rounded shadow-sm" alt="Diagrama de la Suma de Riemann">
-                </div>
-            </div>
-            <div class="row align-items-center mt-5">
-                <div class="col-md-7">
-                     <h4>Extensión a Volúmenes: El Método de las Rebanadas</h4>
-                    <p>Este principio de "dividir y conquistar" se extiende de manera análoga al cálculo de volúmenes de sólidos irregulares. El sólido se secciona en una serie de "rebanadas" de un grosor infinitesimal.</p>
-                    <p>Si se puede definir una función, A(x), que describa el área de la sección transversal del sólido en cualquier punto x, entonces el volumen total del sólido es la integral de esta función de área a lo largo del eje de integración.</p>
-                     <p>$$ V = \int_{a}^{b} A(x) \,dx $$</p>
-                     <small>Aquí, A(x) es la función del área de la sección transversal, y dx representa el grosor infinitesimal de cada rebanada.</small>
-                </div>
-                <div class="col-md-5">
-                    <img src="https://andresdv10.github.io/tallergrupal2/Modelado%203D.png" class="img-fluid rounded shadow-sm" alt="Sólido dividido en rebanadas">
+                <div class="col-md-6 d-flex">
+                    <div class="card-custom text-center">
+                        <h4>Cálculo de Volúmenes</h4>
+                        <img src="https://andresdv10.github.io/tallergrupal2/Modelado%203D.png" class="img-fluid rounded my-3" alt="Método de Rebanadas">
+                        <p>Extendemos la idea "rebanando" un sólido en discos infinitesimales para calcular su volumen. <a href="#bibliography" class="citation">(Stewart, 2015)</a></p>
+                        $$ V = \lim_{n \to \infty} \sum_{i=1}^{n} A(x_i^*) \Delta x = \int_{a}^{b} A(x) \,dx $$
+                    </div>
                 </div>
             </div>
         </div>
@@ -178,18 +190,19 @@
     <!-- Slide 6: Challenges -->
     <section id="challenges" class="slide">
         <div class="slide-content">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <img src="https://andresdv10.github.io/tallergrupal2/Software%20simulacion.png" class="img-fluid rounded shadow-sm" alt="Software de simulación por elementos finitos">
+            <div class="row align-items-center g-5">
+                <div class="col-md-6 order-md-2">
+                    <div class="card-custom">
+                        <h2>Desafíos Prácticos</h2>
+                        <ul class="list-group list-group-flush fs-5">
+                            <li class="list-group-item"><i class="bi bi-bounding-box-circles me-2"></i><strong>Modelado Matemático:</strong> Traducir objetos reales a funciones precisas.</li>
+                            <li class="list-group-item"><i class="bi bi-calculator me-2"></i><strong>Complejidad Analítica:</strong> Las funciones resultantes rara vez pueden integrarse a mano.</li>
+                            <li class="list-group-item"><i class="bi bi-cpu me-2"></i><strong>Soluciones Numéricas:</strong> Se recurre a software para aproximar la solución. <a href="#bibliography" class="citation">(Camacho et al., 2008)</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <h2>Desafíos de la Aplicación Práctica</h2>
-                    <p class="lead">La transición de los problemas teóricos del aula a las aplicaciones en el mundo real presenta varios desafíos significativos para el ingeniero.</p>
-                    <ul class="list-group list-group-flush fs-5">
-                        <li class="list-group-item"><strong>1. Modelado Matemático:</strong> Los objetos reales no se describen con funciones simples. El primer desafío es construir un modelo matemático preciso a partir de datos experimentales, obtenidos con tecnologías como escáneres 3D o fotogrametría.</li>
-                        <li class="list-group-item"><strong>2. Complejidad Analítica:</strong> Las funciones derivadas de modelos reales a menudo son tan complejas que su integral no puede ser resuelta por métodos analíticos tradicionales.</li>
-                        <li class="list-group-item"><strong>3. Soluciones Numéricas:</strong> En la práctica, se recurre a software especializado que implementa <strong>métodos numéricos</strong> como Simpson, o el método de Elementos Finitos para aproximar el valor de la integral, dividiendo el problema en millones de elementos discretos.</li>
-                    </ul>
+                <div class="col-md-6 order-md-1">
+                    <img src="https://andresdv10.github.io/tallergrupal2/Software%20simulacion.png" class="img-fluid rounded-3 shadow-lg" alt="Software de simulación">
                 </div>
             </div>
         </div>
@@ -198,27 +211,32 @@
     <!-- Slide 7, 8, 9: Study Case -->
     <section id="study-case" class="slide">
         <div class="slide-content">
-            <h2 class="text-center">Caso de Estudio: Análisis Estructural de una Presa</h2>
-            <p class="text-center lead mb-5">Un análisis de las aplicaciones del cálculo integral en un proyecto de ingeniería civil donde la precisión es un factor crítico para la seguridad y viabilidad.</p>
-            <div class="row text-center gy-4">
+            <h2 class="text-center">Caso de Estudio: Diseño de una Presa</h2>
+            <p class="text-center lead mb-5">Aplicación crítica del cálculo para garantizar seguridad y viabilidad.</p>
+            <div class="row text-center g-4">
                 <div class="col-md-4">
-                    <img src="https://andresdv10.github.io/tallergrupal2/Volumen%20hormigon.png" class="img-fluid rounded mb-3 shadow">
-                    <h5>1. Cuantificación de Materiales</h5>
-                    <p>Mediante integrales triples se calcula el volumen exacto de la estructura. Este dato es la base para la estimación de costos de materiales como el hormigón, y para la planificación logística del proyecto.</p>
+                    <div class="card-custom h-100">
+                        <img src="https://andresdv10.github.io/tallergrupal2/Volumen%20hormigon.png" class="img-fluid rounded mb-3">
+                        <h5>1. Cuantificación de Materiales</h5>
+                        <p class="small">Calcular el volumen exacto de hormigón para estimar costos y logística.</p>
+                        $$ V = \iiint_D dV $$
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <img src="https://andresdv10.github.io/tallergrupal2/Fuerza%20hidrostatica.png" class="img-fluid rounded mb-3 shadow">
-                    <h5>2. Cálculo de Fuerza Hidrostática</h5>
-                    <p>La presión del agua (P) aumenta con la profundidad (h) según (P = \rho g h). La fuerza total (F) sobre la cara de la presa se obtiene integrando esta presión variable sobre la superficie expuesta.</p>
-                    $$ F = \int_{c}^{d} \rho g h(y) w(y) \,dy $$
-                    <small>Donde h(y) es la profundidad y w(y) es el ancho de la presa en una altura y.</small>
+                    <div class="card-custom h-100">
+                        <img src="https://andresdv10.github.io/tallergrupal2/Fuerza%20hidrostatica.png" class="img-fluid rounded mb-3">
+                        <h5>2. Fuerza Hidrostática</h5>
+                        <p class="small">Integrar la presión variable del agua para determinar la fuerza total sobre la estructura.</p>
+                        $$ F = \int_{a}^{b} \rho g y \cdot w(y) \,dy $$
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <img src="https://andresdv10.github.io/tallergrupal2/Centro%20de%20presion.png" class="img-fluid rounded mb-3 shadow">
-                    <h5>3. Análisis de Estabilidad</h5>
-                    <p>Es crucial determinar el <strong>centro de presión</strong>, el punto donde se aplica la fuerza resultante. Se calcula como un promedio ponderado de la presión y su posición.</p>
-                     $$ \bar{y}_P = \frac{\int_{A} y P \,dA}{\int_{A} P \,dA} $$
-                    <small>Un correcto cálculo de este punto es vital para diseñar una base que impida el vuelco de la estructura.</small>
+                    <div class="card-custom h-100">
+                        <img src="https://andresdv10.github.io/tallergrupal2/Centro%20de%20presion.png" class="img-fluid rounded mb-3">
+                        <h5>3. Análisis de Estabilidad</h5>
+                        <p class="small">Ubicar el centro de presión para diseñar una base que prevenga el vuelco de la presa.</p>
+                        $$ y_p = \frac{\int y \cdot dF}{F} $$
+                    </div>
                 </div>
             </div>
         </div>
@@ -227,15 +245,19 @@
     <!-- Slide 10: Conclusion -->
     <section id="conclusion" class="slide">
         <div class="slide-content">
-            <div class="row align-items-center">
+            <div class="row align-items-center g-5">
                 <div class="col-md-6">
-                    <h2>Conclusión: Una Herramienta Esencial</h2>
-                    <p class="fs-5">En conclusión, el cálculo integral trasciende el ámbito académico para establecerse como un pilar de la ingeniería moderna. Proporciona el lenguaje para modelar la complejidad del mundo físico.</p>
-                    <p class="fs-5">Su dominio permite a los ingenieros analizar, predecir y cuantificar con la precisión necesaria para innovar y desarrollar soluciones que sean fundamentalmente <strong>seguras, eficientes y económicamente viables.</strong></p>
-                    <p class="fs-5">Cada gran obra de ingeniería es un testimonio del poder de este método para sumar partes infinitesimales y obtener un resultado tangible y funcional.</p>
+                    <div class="card-custom">
+                        <h2>Conclusión</h2>
+                        <ul class="list-unstyled fs-5">
+                           <li class="mb-3"><i class="bi bi-check-circle-fill me-2"></i> El Cálculo Integral es un <strong>pilar fundamental</strong> de la ingeniería moderna.</li>
+                           <li class="mb-3"><i class="bi bi-check-circle-fill me-2"></i> Permite diseñar soluciones <strong>seguras, eficientes y viables</strong> a problemas complejos.</li>
+                           <li class="mb-3"><i class="bi bi-check-circle-fill me-2"></i> Cada gran obra de ingeniería es un testimonio de su poder.</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <img src="https://andresdv10.github.io/tallergrupal2/Conclusion.png" class="img-fluid rounded shadow-sm" alt="Puente moderno y complejo">
+                    <img src="https://andresdv10.github.io/tallergrupal2/Conclusion.png" class="img-fluid rounded-3 shadow-lg" alt="Puente moderno">
                 </div>
             </div>
         </div>
@@ -244,21 +266,23 @@
     <!-- Slide 11: Bibliography -->
     <section id="bibliography" class="slide">
         <div class="slide-content">
-            <h2>Bibliografía</h2>
-            <div class="biblio-ref">
-                Bueno, R., Reyes, A., & Jaimes, C.-L. (2020). Significados intuitivos y formales de la integral definida en la formación de ingenieros. <i>Praxis & Saber</i>, <i>11</i>(27), e10725. https://doi.org/10.19053/22160159.v11.n27.2020.10725
-            </div>
-            <div class="biblio-ref">
-                Camacho, A., Rigo, M., & Santos-Trigo, F. (2008). Integral definida en diversos contextos. Un estudio de casos. <i>Educación Matemática</i>, <i>20</i>(3), 33-57.
-            </div>
-            <div class="biblio-ref">
-                Gonzales, F., & Gaita, C. (2022). La integral definida en la formación de un ingeniero químico: Análisis praxeológico. <i>Revista de Educación Matemática</i>, <i>34</i>, 248-274.
-            </div>
-            <div class="biblio-ref">
-                Hass, J. R., Heil, C. E., & Weir, M. D. (2018). <i>Thomas' Calculus</i> (14th ed.). Pearson.
-            </div>
-            <div class="biblio-ref">
-                Stewart, J. (2015). <i>Calculus: Early Transcendentals</i> (8th ed.). Cengage Learning.
+            <h2 class="text-center">Bibliografía y Referencias</h2>
+            <div class="mt-4">
+                <div class="biblio-ref">
+                    Bueno, R., Reyes, A., & Jaimes, C.-L. (2020). Significados intuitivos y formales de la integral definida en la formación de ingenieros. <i>Praxis & Saber</i>, <i>11</i>(27), e10725.
+                </div>
+                <div class="biblio-ref">
+                    Camacho, A., Rigo, M., & Santos-Trigo, F. (2008). Integral definida en diversos contextos. Un estudio de casos. <i>Educación Matemática</i>, <i>20</i>(3), 33-57.
+                </div>
+                <div class="biblio-ref">
+                    Gonzales, F., & Gaita, C. (2022). La integral definida en la formación de un ingeniero químico: Análisis praxeológico. <i>Revista de Educación Matemática</i>, <i>34</i>, 248-274.
+                </div>
+                <div class="biblio-ref">
+                    Hass, J. R., Heil, C. E., & Weir, M. D. (2018). <i>Thomas' Calculus</i> (14th ed.). Pearson.
+                </div>
+                <div class="biblio-ref">
+                    Stewart, J. (2015). <i>Calculus: Early Transcendentals</i> (8th ed.). Cengage Learning.
+                </div>
             </div>
         </div>
     </section>
@@ -267,3 +291,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
